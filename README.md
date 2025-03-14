@@ -7,7 +7,7 @@ The Access Agent allows for SPARQL federation across a endpoints within a [TWA S
 ### Dataset endpoint
 
 A dataset endpoint is an endpoint that federates across each endpoint related to a dataset in a stack.
-When a new dataset is added to this stack a new federated endpoint will be added.
+When a new dataset is added to this stack a new federated dataset endpoint will be added.
 This endpoint will persist for multiple queries and it will therefore be referred to as "static".
 
 ### Incoming stack endpoint
@@ -19,12 +19,12 @@ This endpoint will persist for multiple queries and it will therefore be referre
 
 ### Outgoing stack endpoint
 
-A incoming stack endpoint creates a federation at query time across internal and external endpoints.
+An outgoing stack endpoint is a federation between internal and external endpoints.
 This endpoint will be used by agents internal to this stack, accessing internal and external data.
 It is not used by external clients in case loops are caused with other Access Agents.
 
-The challenge of querying from external endpoints is that there are potentially very many of these endpoints and they could be slow.
-There are two potential implementations that address this question in different ways.
+The challenge of querying from external endpoints is that there are potentially very many of these endpoints and they could have performance difficulties.
+There are two potential implementations to address this question in different ways.
 
 #### Dynamic implementation
 
