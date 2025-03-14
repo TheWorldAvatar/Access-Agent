@@ -20,8 +20,25 @@ This endpoint will persist for multiple queries and it will therefore be referre
 A incoming stack endpoint creates a federation at query time across internal and external endpoints.
 This endpoint will be used by agents internal to this stack, accessing internal and external data.
 It is not used by external clients in case loops are caused with other Access Agents.
-In future, the endpoints will be chose based on the query.
-In the first implementation the [incoming stack endpoint](#incoming-stack-endpoint) along with a specified list of external endpoints will be used.
+
+The challenge of querying from external endpoints is that there are potentially very many of these endpoints and they could be slow.
+There are two potential implementations that address this question in different ways.
+
+### Dynamic implementation
+
+In this implementation a federation is created at query time ("dynamic").
+The endpoints that make up this federation are chosen based on the query and an indexed set of potential endpoints.
+
+A first implementation could just federated across the [incoming stack endpoint](#incoming-stack-endpoint) and a specified list of external endpoints.
+In future, new external endpoints could be register and indexing would be used to select the federation.
+
+### Static implementation
+
+In this implementation an endpoint is created when the Access Agent starts up ("static").
+The [service description](https://www.w3.org/TR/sparql11-service-description/) for each external service is cached locally.
+If the service description is not available for that endpoint a construct query would be used to make it.
+All `ASK` queries from the federation would be answered using some middleware and the service description.
+Then, full advantage could be taken of native indexing of the federated endpoint.
 
 ## Design
 
