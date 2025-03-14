@@ -45,8 +45,8 @@ graph TB
         Client"}
         in_client --> outgoing
     end
-    outgoing --> externalfed("External")
-    outgoing --> externalnonfed(["External"])
+    outgoing --> ex_fed("External")
+    outgoing --> ex_non_fed(["External"])
 
     style ex_client fill:#a6a6a6, stroke:#ffffff
     style in_client fill:#a6a6a6, stroke:#ffffff
@@ -62,8 +62,8 @@ graph TB
     style DBB fill:#0d6c7e, stroke:#ffffff
     style DBO fill:#0d6c7e, stroke:#ffffff
     
-    style externalfed fill:#0e7e44, stroke:#ffffff
-    style externalnonfed fill:#0d6c7e, stroke:#ffffff
+    style ex_fed fill:#0e7e44, stroke:#ffffff
+    style ex_non_fed fill:#0d6c7e, stroke:#ffffff
 ```
 
 With the following key
@@ -71,8 +71,8 @@ With the following key
 ```mermaid
 graph TB
     fed("Federated Sparql Endpoint")
-    nonfed(["Non-federated Sparql Endpoint"])
+    non_fed(["Non-federated Sparql Endpoint"])
 
     style fed fill:#0e7e44, stroke:#ffffff
-    style nonfed fill:#0d6c7e, stroke:#ffffff
+    style non_fed fill:#0d6c7e, stroke:#ffffff
 ```
